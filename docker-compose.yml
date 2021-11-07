@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  webapp-server:
+    build:
+      context: .
+      target: webapp-server
+      dockerfile: Dockerfile
+      args:
+        BUILD_PHRASES: "build:develop"
+    image: web-app-server-go
+    ports:
+      - 99:80
