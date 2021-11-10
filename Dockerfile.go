@@ -1,7 +1,7 @@
 FROM alpine:latest AS webapp
 RUN apk --no-cache add ca-certificates
 WORKDIR /root/
-COPY --from=0 /go/src/github.com/alexellis/href-counter/app .
+COPY --from=gobuilder /go/src/github.com/alexellis/href-counter/app .
 CMD ["./app"]
 
 FROM golang:1.7.3 AS gobuilder
